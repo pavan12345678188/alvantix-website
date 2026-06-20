@@ -1,0 +1,6 @@
+{
+  "name": "Alvantix",
+  "description": "Innovating the Future Through AI & Technology. AI-first innovation, intelligent software, and advanced technology solutions.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
