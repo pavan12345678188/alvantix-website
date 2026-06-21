@@ -10,6 +10,7 @@ export const sendContactEmail = async (req, res) => {
     const adminResponse = await resend.emails.send({
       from: process.env.FROM_EMAIL,
       to: process.env.TO_EMAIL,
+      replyTo: process.env.Reply_TO,
       subject: `🚀 New Contact Inquiry - ${name}`,
       html: adminTemplate({
         name,
@@ -31,6 +32,7 @@ export const sendContactEmail = async (req, res) => {
     const customerResponse = await resend.emails.send({
       from: process.env.FROM_EMAIL,
       to: email,
+      replyTO:process.env.Reply_TO,
       subject: "Thank you for contacting Alvantix",
       html: customerTemplate(name),
     });
