@@ -56,8 +56,8 @@ const perks = [
           </p>
         </div>
 <SEO
-title="About Alvantix"
-description="Learn about Alvantix, our mission, vision, values, and commitment to AI-driven innovation."
+  title="Careers at Alvantix"
+  description="Join Alvantix and build the future with AI, software, and digital innovation. Subscribe to be notified when career opportunities open."
 />
         {/* PERKS STATS */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">

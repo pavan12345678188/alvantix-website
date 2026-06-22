@@ -38,8 +38,8 @@ export default function PrivacyView() {
           </p>
         </div>
 <SEO
-title="About Alvantix"
-description="Learn about Alvantix, our mission, vision, values, and commitment to AI-driven innovation."
+  title="Privacy Policy | Alvantix"
+  description="Read the Alvantix Privacy Policy to understand how we collect, use, and protect your personal information."
 />
         {/* SECURITY PROMISES BLOCK */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">

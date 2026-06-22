@@ -225,9 +225,10 @@ export default function ServicesView({
 
       </section>
 <SEO
-title="About Alvantix"
-description="Learn about Alvantix, our mission, vision, values, and commitment to AI-driven innovation."
+  title="Services | Alvantix"
+  description="Explore Alvantix services including AI solutions, software development, web development, automation, cloud solutions, and digital transformation."
 />
+
       {/* DRAWER / SLIDEOVER PANEL FOR EXPERTISE INSIGHTS */}
       <AnimatePresence>
         {selectedService && (
