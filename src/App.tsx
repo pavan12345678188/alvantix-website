@@ -8,6 +8,7 @@ import Footer from "./components/Footer";
 import HomeView from "./components/HomeView";
 import AboutView from "./components/AboutView";
 import ServicesView from "./components/ServicesView";
+import ServiceDetailView from "./components/ServiceDetailView";
 import CareersView from "./components/CareersView";
 import ContactView from "./components/ContactView";
 import PrivacyView from "./components/PrivacyView";
@@ -48,6 +49,11 @@ export default function App() {
               <Route
                 path="/services"
                 element={<ServicesView standalone />}
+              />
+
+              <Route
+                path="/services/:serviceId"
+                element={<ServiceDetailView />}
               />
 
               <Route
