@@ -11,7 +11,7 @@ export const sendContactEmail = async (req, res) => {
       message,
     } = req.body;
 
-    // Check required fields
+    // Validate required fields
     if (!name || !email || !message) {
       return res.status(400).json({
         success: false,
@@ -19,16 +19,19 @@ export const sendContactEmail = async (req, res) => {
       });
     }
 
-    // Check email configuration
+    // Alvantix email configuration
+    const FROM_EMAIL = "contact@alvantix.in";
+    const TO_EMAIL = "contact.alvantix@gmail.com";
+
     console.log("EMAIL CONFIG:", {
-      from: process.env.FROM_EMAIL,
-      to: process.env.TO_EMAIL,
+      from: FROM_EMAIL,
+      to: TO_EMAIL,
     });
 
     // Send inquiry to Alvantix
     const adminResponse = await resend.emails.send({
-      from: process.env.FROM_EMAIL,
-      to: process.env.TO_EMAIL,
+      from: FROM_EMAIL,
+      to: TO_EMAIL,
       replyTo: email,
       subject: `🚀 New Contact Inquiry - ${name}`,
       html: adminTemplate({
@@ -40,7 +43,6 @@ export const sendContactEmail = async (req, res) => {
       }),
     });
 
-    // Handle Resend error
     if (adminResponse.error) {
       console.error("Resend error:", adminResponse.error);
 
@@ -57,7 +59,7 @@ export const sendContactEmail = async (req, res) => {
 
   } catch (error) {
     console.error("Contact error:", error);
-
+    
     return res.status(500).json({
       success: false,
       message: "Failed to send inquiry.",
