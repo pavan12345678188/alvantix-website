@@ -32,7 +32,7 @@ export default function ContactView() {
     },
     {
       title: 'Email Us',
-      address: 'contact.alvantix@gmail.com',
+      address: 'contact@alvantix.in',
       icon: Mail
     },
   ];
@@ -42,13 +42,16 @@ const handleSubmit = async (e: React.FormEvent) => {
   setIsSubmitting(true);
 
   try {
-    const response = await fetch("https://alvantix-website.onrender.com/api/contact", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formData),
-    });
+    const response = await fetch(
+      "https://alvantix-website.onrender.com/api/contact",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      }
+    );
 
     const data = await response.json();
 
@@ -71,8 +74,8 @@ const handleSubmit = async (e: React.FormEvent) => {
     } else {
       alert(data.message);
     }
-
-  } catch (error) {
+  } 
+  catch (error) {
     console.error(error);
     alert("Unable to connect to the server.");
   } finally {

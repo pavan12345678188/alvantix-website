@@ -1,31 +1,48 @@
-import express from "express";
-import cors from "cors";
-import dotenv from "dotenv";
+  import express from "express";
+  import cors from "cors";
+  import dotenv from "dotenv";
 
+  import contactRoutes from "./routes/contact.js";
 
-dotenv.config();
+  dotenv.config();
 
+  const app = express();
 
-import contactRoutes from "./routes/contact.js";
+  // Middleware
+  app.use(
+    cors({
+      origin: [
+        "https://alvantix.in",
+        "https://www.alvantix.in",
+      ],
+    })
+  );
 
-const app = express();
+  app.use(express.json());
 
-// Middleware
-app.use(cors());
-app.use(express.json());
-app.use("/api/contact",contactRoutes)
+  // Contact API
+  app.use("/api/contact", contactRoutes);
 
-// Test Route
-app.get("/", (req, res) => {
-  res.json({
-    success: true,
-    message: "🚀 Alvantix Backend Server is Running Successfully!",
+  // Health / Test Route
+  app.get("/", (req, res) => {
+    res.json({
+      success: true,
+      message: "🚀 Alvantix Backend Server is Running Successfully!",
+    });
   });
-});
 
-// Server
-const PORT = process.env.PORT || 5173;
+  // Health Check
+  app.get("/health", (req, res) => {
+    res.status(200).json({
+      success: true,
+      service: "Alvantix Backend",
+      status: "healthy",
+    });
+  });
 
-app.listen(PORT, () => {
-  console.log(`✅ Server running on http://localhost:${PORT}`);
-});
+  // Server
+  const PORT = process.env.PORT || 5173;
+
+  app.listen(PORT, "0.0.0.0", () => {
+    console.log(`✅ Alvantix Backend running on port ${PORT}`);
+  });
