@@ -11,7 +11,21 @@ export const sendContactEmail = async (req, res) => {
       message,
     } = req.body;
 
-    // Email to Admin
+    // Check required fields
+    if (!name || !email || !message) {
+      return res.status(400).json({
+        success: false,
+        message: "Name, email, and message are required.",
+      });
+    }
+
+    // Check email configuration
+    console.log("EMAIL CONFIG:", {
+      from: process.env.FROM_EMAIL,
+      to: process.env.TO_EMAIL,
+    });
+
+    // Send inquiry to Alvantix
     const adminResponse = await resend.emails.send({
       from: process.env.FROM_EMAIL,
       to: process.env.TO_EMAIL,
@@ -26,6 +40,7 @@ export const sendContactEmail = async (req, res) => {
       }),
     });
 
+    // Handle Resend error
     if (adminResponse.error) {
       console.error("Resend error:", adminResponse.error);
 
