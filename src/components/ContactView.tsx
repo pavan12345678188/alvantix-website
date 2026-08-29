@@ -135,8 +135,8 @@ const handleSubmit = async (e: React.FormEvent) => {
           </div>
 
 <SEO
-  title="Contact Alvantix"
-  description="Get in touch with Alvantix for AI solutions, software development, automation, web development, and technology consulting."
+  title="Contact Alvantix | Start Your Project"
+  description="Contact Alvantix for AI solutions, software development, web development, automation, digital marketing, analytics, and technology services."
 />
           {/* RIGHT: INTERACTIVE CONTACT FORM CARD */}
           <div className="lg:col-span-7">

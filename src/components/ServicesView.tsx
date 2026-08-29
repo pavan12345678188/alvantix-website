@@ -17,10 +17,10 @@ export default function ServicesView({
   return (
     <div className={`w-full bg-slate-50/40 relative ${standalone ? 'pt-40 md:pt-44' : ''}`}>
 
-      <SEO
-        title="Services | Alvantix"
-        description="Explore Alvantix services including AI solutions, software development, web development, digital marketing, automation, and business intelligence."
-      />
+    <SEO
+  title="Services | Alvantix"
+  description="Explore Alvantix services including AI solutions, software development, web development, digital marketing, automation, and business intelligence."
+/>
 
       <section className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 

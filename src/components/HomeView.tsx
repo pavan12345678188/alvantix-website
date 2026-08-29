@@ -121,9 +121,10 @@ export default function HomeView() {
         </div>
       </section>
 
-<SEO
-title="Alvantix | AI & Software Innovation Company"
-description="Alvantix builds AI-powered software, automation platforms, websites, mobile apps, and intelligent digital solutions for businesses."
+<title>Alvantix | AI & Software Innovation Company</title>
+<meta
+  name="description"
+  content="Alvantix delivers AI-powered software, web development, automation, digital marketing, analytics, and intelligent digital solutions for modern businesses."
 />
 
       {/* 3. EXPERTISE TEASER */}

@@ -48,8 +48,8 @@ export default function TermsView() {
 
         </div>
 <SEO
-title="Terms & Conditions | Alvantix"
-description="Review the Terms & Conditions governing the use of Alvantix products, services, and website."
+  title="Terms & Conditions | Alvantix"
+  description="Read the Terms and Conditions governing the use of Alvantix services and website."
 />
 
         {/* HIGHLIGHTS */}

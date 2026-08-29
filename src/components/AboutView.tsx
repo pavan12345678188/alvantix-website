@@ -156,8 +156,8 @@ export default function AboutView({
               </div>
             </div>
 <SEO
-title="About Alvantix"
-description="Learn about Alvantix, our mission, vision, values, and commitment to AI-driven innovation."
+  title="About Alvantix | AI & Software Innovation"
+  description="Learn about Alvantix and our mission to build intelligent software, AI solutions, automation, and digital experiences for modern businesses."
 />
             {/* RIGHT: WHO WE ARE TEXT */}
             <div className="flex flex-col space-y-6 text-left">
