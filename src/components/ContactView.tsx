@@ -42,7 +42,7 @@ const handleSubmit = async (e: React.FormEvent) => {
   setIsSubmitting(true);
 
   try {
-    const response = await fetch("https://alvantix-website.onrender.com/", {
+    const response = await fetch("https://alvantix-website.onrender.com/api/contact", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
