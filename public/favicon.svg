@@ -11,8 +11,8 @@
     </filter>
   </defs>
 
-  <!-- Full-bleed Sapphire Blue Outer Circle: r=98 filling edge-to-edge for maximum tab visibility -->
-  <circle cx="100" cy="100" r="98" fill="url(#alvBlueGrad)" stroke="#2563EB" stroke-width="2" />
+  <!-- Full-bleed Sapphire Blue Outer Circle: r=100 filling 100% edge-to-edge -->
+  <circle cx="100" cy="100" r="100" fill="url(#alvBlueGrad)" stroke="#2563EB" stroke-width="1" />
 
   <!-- Upper Semi-Circle Network Nodes (Vibrant Light Cyan-Blue) -->
   <g stroke="#38bdf8" stroke-width="2.5" opacity="0.95">

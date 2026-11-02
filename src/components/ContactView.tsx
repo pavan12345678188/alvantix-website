@@ -159,12 +159,36 @@ export default function ContactView() {
     }
   };
 
+  const contactPageSchema = {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Contact Alvantix",
+    "description": "Connect with Alvantix for artificial intelligence, software engineering, and business automation inquiries.",
+    "url": "https://www.alvantix.in/contact",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "Alvantix",
+      "url": "https://www.alvantix.in/",
+      "telephone": "+91 77802 39013",
+      "email": "contact@alvantix.in",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "IN"
+      }
+    }
+  };
+
   return (
     <div className="w-full bg-white pt-32 md:pt-36 pb-24 relative overflow-hidden grid-bg text-left">
       <SEO
         title="Contact Alvantix | AI & Software Engineering Inquiries"
         description="Connect with Alvantix. Have a business requirement, technology challenge or innovative idea? Let's explore how AI and software engineering can build your solution."
         canonical="https://www.alvantix.in/contact"
+        breadcrumbs={[
+          { name: "Home", url: "/" },
+          { name: "Contact", url: "/contact" }
+        ]}
+        schema={contactPageSchema}
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
