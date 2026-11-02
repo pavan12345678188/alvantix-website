@@ -166,7 +166,7 @@ export default function ServiceDetailView() {
               </span>
               <span className="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-100">
                 <ShieldCheck className="w-3.5 h-3.5" />
-                Production-Grade Engineering
+                Professional Development
               </span>
             </div>
           </div>

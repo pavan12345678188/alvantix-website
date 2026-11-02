@@ -137,7 +137,7 @@ export default function AISolutionDetailView() {
 
             <div>
               <span className="text-xs font-mono font-bold text-blue-600 uppercase tracking-widest mb-1.5 block">
-                AI CAPABILITY
+                AI SOLUTION
               </span>
               <h1 className="font-display font-bold text-3xl sm:text-5xl text-slate-900 tracking-tight leading-tight">
                 {solution.name}
@@ -580,7 +580,7 @@ export default function AISolutionDetailView() {
                     </div>
                     <div>
                       <span className="text-xs font-mono font-bold text-blue-600 uppercase tracking-wider block">
-                        AI CAPABILITY
+                        AI SOLUTION
                       </span>
                       <h3 className="font-display font-bold text-lg text-slate-900 group-hover:text-blue-600 transition-colors">
                         {otherSol.name}

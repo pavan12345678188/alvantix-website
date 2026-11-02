@@ -26,6 +26,7 @@ import {
 import Hero from "./Hero";
 import { useNavigate } from "react-router-dom";
 import SEO from "./SEO";
+import ProductsShowcase from "./ProductsShowcase";
 
 export default function HomeView() {
   const navigate = useNavigate();
@@ -336,6 +337,11 @@ export default function HomeView() {
       </section>
 
       {/* ==================================================
+          OUR PRODUCTS: ALVANTIX PRODUCT ECOSYSTEM
+      ================================================== */}
+      <ProductsShowcase />
+
+      {/* ==================================================
           SECTION 6: FUTURE AI VISION
       ================================================== */}
       <section className="py-20 sm:py-24 bg-slate-900 text-white relative overflow-hidden">
@@ -366,9 +372,6 @@ export default function HomeView() {
             {researchDirections.map((dir) => (
               <div key={dir.num} className="p-6 rounded-2xl bg-slate-800/80 border border-slate-700/80 flex flex-col justify-between">
                 <div>
-                  <span className="text-xs font-mono font-bold text-blue-400 block mb-3">
-                    Direction {dir.num}
-                  </span>
                   <h3 className="font-display font-bold text-lg text-white mb-2">
                     {dir.title}
                   </h3>
@@ -407,9 +410,6 @@ export default function HomeView() {
                   className="bg-white border border-slate-200/90 rounded-2xl p-6 shadow-2xs hover:shadow-md transition-all flex flex-col justify-between"
                 >
                   <div>
-                    <span className="text-xs font-mono font-bold text-blue-600 block mb-3">
-                      Principle 0{p.num}
-                    </span>
                     <h3 className="font-display font-bold text-base text-slate-900 mb-2">
                       {p.title}
                     </h3>

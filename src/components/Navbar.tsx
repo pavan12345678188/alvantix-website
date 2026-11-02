@@ -6,7 +6,6 @@ import { useNavigate, useLocation } from "react-router-dom";
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -15,17 +14,33 @@ export default function Navbar() {
       setIsScrolled(window.scrollY > 15);
     };
 
-    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleNavigate = (path: string) => {
-    navigate(path);
+  useEffect(() => {
     setMobileMenuOpen(false);
+  }, [location.pathname]);
+
+  useEffect(() => {
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setMobileMenuOpen(false);
+      }
+    };
+
+    window.addEventListener("keydown", handleEscape);
+    return () => window.removeEventListener("keydown", handleEscape);
+  }, []);
+
+  const handleNavigate = (path: string) => {
+    setMobileMenuOpen(false);
+    navigate(path);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  // Exactly five main navigation pages (strict requirement)
   const navLinks = [
     { label: "Home", path: "/" },
     { label: "About", path: "/about" },
@@ -34,69 +49,76 @@ export default function Navbar() {
     { label: "Contact", path: "/contact" },
   ];
 
+  const isActiveRoute = (path: string) =>
+    path === "/"
+      ? location.pathname === "/"
+      : location.pathname.startsWith(path);
+
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-[100] w-full transition-all duration-300 ${
         isScrolled
-          ? "bg-white/95 backdrop-blur-md shadow-[0_4px_20px_rgba(15,23,42,0.06)] border-b border-slate-150 py-2.5"
-          : "bg-white/80 backdrop-blur-sm border-b border-slate-100/60 py-3.5"
+          ? "bg-white/95 backdrop-blur-xl shadow-[0_4px_20px_rgba(15,23,42,0.06)] border-b border-slate-200 py-2"
+          : "bg-white/90 backdrop-blur-md border-b border-slate-100 py-2.5 sm:py-3"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between gap-3 sm:gap-6">
-          
-          {/* LEFT: ORIGINAL CIRCULAR ALVANTIX LOGO + HORIZONTAL WORDMARK */}
-          <div
+          {/* LEFT: ORIGINAL ALVANTIX BRANDING */}
+          <button
+            type="button"
             onClick={() => handleNavigate("/")}
-            className="cursor-pointer group flex items-center gap-2.5 sm:gap-3 shrink-0"
-            title="Alvantix — AI & Software Innovation Company"
+            className="flex min-w-0 shrink items-center gap-2 sm:gap-3 text-left cursor-pointer"
+            aria-label="Alvantix Home"
           >
-            {/* Original Circular Logo: Desktop 48–54px, Mobile 42–46px */}
-            <div className="flex items-center justify-center transition-transform duration-200 group-hover:scale-102">
-              <img
-                src="/logo/alvantix logo.png"
-                alt="Alvantix Circular AI Logo"
-                className="h-[44px] sm:h-[48px] lg:h-[52px] w-auto object-contain"
-              />
-            </div>
+            {/* Circular Logo */}
+            <img
+              src="/logo/alvantix logo.png"
+              alt="Alvantix Logo"
+              className="h-[58px] sm:h-[64px] lg:h-[64px] shrink-0 object-contain"
+            />
 
-            {/* Original Horizontal ALVANTIX Wordmark */}
-            <div className="flex items-center">
-              <img
-                src="/logo/alvantix Name logo.png"
-                alt="Alvantix"
-                className="h-[22px] sm:h-[26px] lg:h-[28px] w-auto object-contain transition-opacity duration-200 group-hover:opacity-90"
-              />
-            </div>
-          </div>
+            {/* Horizontal Wordmark — always visible */}
+            <img
+              src="/logo/alvantix Name logo.png"
+              alt="Alvantix"
+              className="h-[28px] sm:h-[32px] lg:h-[36px] max-w-[140px] sm:max-w-[170px] shrink object-contain object-left"
+            />
+          </button>
 
-          {/* RIGHT: EXACT FIVE NAVIGATION LINKS + LET'S TALK CTA */}
-          <div className="flex items-center gap-3 sm:gap-6">
-            
-            {/* DESKTOP NAVIGATION (Exactly 5 Links, No Dropdowns) */}
-            <nav className="hidden lg:flex items-center space-x-1 xl:space-x-2">
+          {/* RIGHT: NAVIGATION AND ACTIONS */}
+          <div className="flex shrink-0 items-center gap-2 sm:gap-3">
+            {/* DESKTOP NAVIGATION */}
+            <nav
+              className="hidden xl:flex items-center gap-0.5 2xl:gap-1"
+              aria-label="Main navigation"
+            >
               {navLinks.map((item) => {
-                const isActive =
-                  item.path === "/"
-                    ? location.pathname === "/"
-                    : location.pathname.startsWith(item.path);
+                const active = isActiveRoute(item.path);
 
                 return (
                   <button
-                    key={item.label}
+                    key={item.path}
+                    type="button"
                     onClick={() => handleNavigate(item.path)}
-                    className={`relative px-3.5 py-2 rounded-full text-xs xl:text-sm font-semibold tracking-wide transition-all duration-200 cursor-pointer ${
-                      isActive
-                        ? "text-blue-600 bg-blue-50/70"
-                        : "text-slate-600 hover:text-slate-900 hover:bg-slate-50"
+                    aria-current={active ? "page" : undefined}
+                    className={`relative whitespace-nowrap px-3 2xl:px-4 py-2.5 rounded-full text-sm font-semibold transition-all duration-200 cursor-pointer ${
+                      active
+                        ? "text-blue-600 bg-blue-50"
+                        : "text-slate-600 hover:text-blue-600 hover:bg-slate-50"
                     }`}
                   >
-                    <span>{item.label}</span>
-                    {isActive && (
-                      <motion.div
+                    {item.label}
+
+                    {active && (
+                      <motion.span
                         layoutId="activeNavIndicator"
-                        className="absolute inset-0 rounded-full border border-blue-200/80 -z-10"
-                        transition={{ type: "spring", stiffness: 450, damping: 35 }}
+                        className="absolute inset-0 rounded-full border border-blue-200 pointer-events-none"
+                        transition={{
+                          type: "spring",
+                          stiffness: 450,
+                          damping: 35,
+                        }}
                       />
                     )}
                   </button>
@@ -104,77 +126,102 @@ export default function Navbar() {
               })}
             </nav>
 
-            {/* RIGHT-SIDE CTA: LET'S TALK ↗ (Never clipped, protected by shrink-0) */}
-            <div className="flex items-center shrink-0">
-              <button
-                onClick={() => handleNavigate("/contact")}
-                className="relative overflow-hidden px-4 sm:px-5 py-2.5 rounded-full bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs sm:text-sm shadow-sm hover:shadow-md hover:shadow-blue-600/20 transition-all duration-200 flex items-center gap-1.5 cursor-pointer whitespace-nowrap"
-              >
-                <span>Let's Talk</span>
-                <ArrowUpRight className="w-3.5 h-3.5" />
-              </button>
-            </div>
+            {/* LET'S TALK CTA — desktop only */}
+            <button
+              type="button"
+              onClick={() => handleNavigate("/contact")}
+              className="hidden lg:flex shrink-0 items-center justify-center gap-1.5 whitespace-nowrap rounded-full bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs sm:text-sm px-3 sm:px-5 py-2.5 transition-all duration-200 shadow-sm hover:shadow-md"
+            >
+              <span>Let's Talk</span>
+              <ArrowUpRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+            </button>
 
-            {/* MOBILE HAMBURGER BUTTON (<1024px) */}
-            <div className="lg:hidden flex items-center shrink-0">
-              <button
-                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="p-2 rounded-xl text-slate-700 hover:text-slate-900 hover:bg-slate-100 transition-colors cursor-pointer"
-                aria-label="Toggle navigation menu"
-              >
-                {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-              </button>
-            </div>
-
+            {/* TABLET AND MOBILE HAMBURGER */}
+            <button
+              type="button"
+              onClick={() => setMobileMenuOpen((previous) => !previous)}
+              className="xl:hidden flex h-10 w-10 sm:h-11 sm:w-11 shrink-0 items-center justify-center rounded-xl text-slate-800 hover:bg-slate-100 active:bg-slate-200 transition-colors cursor-pointer"
+              aria-label={
+                mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"
+              }
+              aria-expanded={mobileMenuOpen}
+              aria-controls="mobile-navigation"
+            >
+              {mobileMenuOpen ? (
+                <X className="w-6 h-6" />
+              ) : (
+                <Menu className="w-6 h-6" />
+              )}
+            </button>
           </div>
-
         </div>
       </div>
 
-      {/* MOBILE DRAWER (Exact 5 items + CTA) */}
+      {/* MOBILE AND TABLET NAVIGATION DRAWER */}
       <AnimatePresence>
         {mobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.2, ease: "easeInOut" }}
-            className="lg:hidden bg-white/98 backdrop-blur-xl border-b border-slate-200 overflow-hidden shadow-xl"
-          >
-            <div className="max-w-7xl mx-auto px-4 py-4 space-y-1.5 text-left">
-              {navLinks.map((item) => {
-                const isActive =
-                  item.path === "/"
-                    ? location.pathname === "/"
-                    : location.pathname.startsWith(item.path);
+          <>
+            <motion.button
+              type="button"
+              aria-label="Close navigation menu"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setMobileMenuOpen(false)}
+              className="fixed inset-0 top-full z-[-1] bg-slate-900/20 xl:hidden"
+            />
 
-                return (
-                  <button
-                    key={item.label}
-                    onClick={() => handleNavigate(item.path)}
-                    className={`w-full flex items-center justify-between px-4 py-3 rounded-xl text-sm font-semibold transition-colors cursor-pointer ${
-                      isActive
-                        ? "bg-blue-50 text-blue-600"
-                        : "text-slate-700 hover:bg-slate-50 hover:text-slate-900"
-                    }`}
-                  >
-                    <span>{item.label}</span>
-                    {isActive && <div className="w-2 h-2 rounded-full bg-blue-600" />}
-                  </button>
-                );
-              })}
-
-              <div className="pt-3 pb-1">
-                <button
-                  onClick={() => handleNavigate("/contact")}
-                  className="w-full py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm shadow-md flex items-center justify-center gap-2 cursor-pointer"
+            <motion.div
+              id="mobile-navigation"
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.22, ease: "easeInOut" }}
+              className="absolute top-full left-0 right-0 xl:hidden overflow-hidden border-b border-slate-200 bg-white shadow-xl"
+            >
+              <div className="max-h-[calc(100dvh-75px)] overflow-y-auto w-full max-w-7xl mx-auto px-4 sm:px-6 py-4">
+                <nav
+                  className="flex flex-col gap-1.5"
+                  aria-label="Mobile navigation"
                 >
-                  <span>Let's Talk</span>
-                  <ArrowUpRight className="w-4 h-4" />
-                </button>
+                  {navLinks.map((item) => {
+                    const active = isActiveRoute(item.path);
+
+                    return (
+                      <button
+                        key={item.path}
+                        type="button"
+                        onClick={() => handleNavigate(item.path)}
+                        aria-current={active ? "page" : undefined}
+                        className={`flex w-full items-center justify-between rounded-xl px-4 py-3.5 text-left text-sm font-semibold transition-colors ${
+                          active
+                            ? "bg-blue-50 text-blue-600"
+                            : "text-slate-700 hover:bg-slate-50 hover:text-blue-600"
+                        }`}
+                      >
+                        <span>{item.label}</span>
+
+                        {active && (
+                          <span className="h-2 w-2 rounded-full bg-blue-600" />
+                        )}
+                      </button>
+                    );
+                  })}
+                </nav>
+
+                <div className="mt-4 border-t border-slate-100 pt-4">
+                  <button
+                    type="button"
+                    onClick={() => handleNavigate("/contact")}
+                    className="flex w-full items-center justify-center gap-2 rounded-xl bg-blue-600 hover:bg-blue-700 py-3.5 text-sm font-semibold text-white transition-colors"
+                  >
+                    <span>Let's Talk</span>
+                    <ArrowUpRight className="w-4 h-4" />
+                  </button>
+                </div>
               </div>
-            </div>
-          </motion.div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </header>
