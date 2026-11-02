@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://alvantix.in/sitemap.xml

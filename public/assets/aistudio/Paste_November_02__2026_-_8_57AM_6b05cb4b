@@ -1,0 +1,1145 @@
+# PROJECT: ALVANTIX
+
+## AI & SOFTWARE INNOVATION COMPANY
+
+Act as a senior React developer, software architect, corporate UI/UX designer, brand strategist and technical SEO specialist.
+
+Your task is to upgrade my existing Alvantix official website into a professional, premium, production-ready AI and software innovation company website.
+
+OFFICIAL WEBSITE:
+https://www.alvantix.in/
+
+TECHNOLOGY STACK:
+
+* React
+* Vite
+* Existing JavaScript/TypeScript architecture
+* Existing CSS/Tailwind configuration
+* Existing dependencies and integrations
+* Existing Vercel deployment
+
+IMPORTANT:
+
+This is an existing production website.
+
+Do not rebuild it from scratch.
+
+First inspect the complete GitHub repository, understand the existing architecture and identify all existing functionality.
+
+Preserve the existing working components, integrations, APIs, backend connections and configurations.
+
+Do not delete or replace working functionality unnecessarily.
+
+==================================================
+
+1. COMPANY IDENTITY & BRAND POSITIONING
+   ==================================================
+
+Company Name: Alvantix
+
+Brand Identity: Alvantix AI
+
+Industry:
+Artificial Intelligence, Software Engineering and Digital Innovation.
+
+Company Positioning:
+
+Alvantix is an AI-first technology and software innovation company focused on developing intelligent digital solutions, software applications, automation systems and emerging technologies.
+
+Official Tagline:
+
+AI-First Systems & Technologies.
+
+Main Brand Statement:
+
+Building Intelligent Digital Solutions for the Future.
+
+Brand Philosophy:
+
+Think Bigger.
+Build Smarter.
+Create the Future.
+
+Brand Promise:
+
+Transforming ideas into intelligent digital solutions through technology, engineering and innovation.
+
+Present Alvantix as an AI-first technology company, not simply a website development agency.
+
+==================================================
+2. BRAND DESIGN SYSTEM
+======================
+
+Preserve the existing Alvantix brand identity.
+
+Primary colours:
+
+* Royal Blue.
+* White.
+* Deep Navy.
+* Light Blue accents.
+
+Design direction:
+
+* Premium corporate appearance.
+* Clean and minimal layouts.
+* Professional typography.
+* Consistent spacing.
+* Strong visual hierarchy.
+* Subtle shadows.
+* Restrained blue accents.
+* Clean borders.
+* Professional iconography.
+* Subtle animations.
+
+Avoid:
+
+* Excessive gradients.
+* Neon colours.
+* Excessive 3D effects.
+* Random emojis.
+* Unnecessary decorative elements.
+* Excessive glassmorphism.
+* Complicated animated backgrounds.
+* Generic AI-generated website templates.
+* Dashboard-like layouts.
+* Excessively rounded cards.
+* Unnecessary visual clutter.
+
+The website should communicate credibility, engineering capability and technological innovation.
+
+It should look like a professional international technology company.
+
+==================================================
+3. FINAL WEBSITE NAVIGATION
+===========================
+
+Create exactly these five main navigation pages:
+
+1. Home
+2. About
+3. AI Solutions
+4. Services
+5. Contact
+
+Navigation:
+
+Home | About | AI Solutions | Services | Contact
+
+Right-side CTA:
+
+Let's Talk ↗
+
+STRICT REQUIREMENTS:
+
+* Do not add Careers.
+* Do not add Studio.
+* Do not add Products.
+* Do not add Projects.
+* Do not create dropdown menus.
+* Do not add unnecessary navigation items.
+* Do not create additional main navigation pages.
+
+Use the original Alvantix circular logo and horizontal wordmark.
+
+HEADER DESIGN:
+
+Left:
+
+* Original circular Alvantix logo.
+* Original ALVANTIX wordmark.
+
+Right:
+
+* Five navigation links.
+* Let's Talk CTA.
+
+Logo requirements:
+
+* Preserve original proportions.
+* Improve visibility.
+* Proper vertical alignment.
+* Appropriate spacing.
+* Responsive sizing.
+
+Suggested circular logo dimensions:
+
+* Desktop: 48–54px.
+* Mobile: 42–46px.
+
+Ensure the entire header fits within the viewport.
+
+The CTA must never be clipped or pushed outside the screen.
+
+==================================================
+4. PAGE ONE – HOMEPAGE
+======================
+
+Route: /
+
+Build the homepage using the following sections in this exact order.
+
+SECTION 1: HERO
+
+Small label:
+
+AI-FIRST SYSTEMS & TECHNOLOGIES
+
+Main heading:
+
+Building Intelligent Digital Solutions for the Future.
+
+Description:
+
+Alvantix is an AI-first technology and software innovation company focused on developing intelligent applications, modern software solutions and digital technologies that help businesses move forward.
+
+We combine artificial intelligence, software engineering and innovation to transform ideas into practical digital solutions.
+
+Primary CTA:
+Explore Our Solutions
+
+Secondary CTA:
+Let's Talk
+
+Brand badge:
+
+Built in India • Designed for the World.
+
+Preserve the existing homepage visual identity and improve its presentation.
+
+SECTION 2: ABOUT ALVANTIX
+
+Heading:
+
+Technology Driven by Innovation.
+
+Content:
+
+Alvantix brings together artificial intelligence, software engineering, automation and data intelligence to develop meaningful digital solutions.
+
+Our focus extends beyond delivering digital services. We aim to develop innovative technology products, solve real-world challenges and explore the future possibilities of artificial intelligence.
+
+CTA:
+
+Discover Alvantix →
+
+SECTION 3: CORE CAPABILITIES
+
+Heading:
+
+What We Do.
+
+Present three capability groups.
+
+A. Artificial Intelligence
+
+Developing intelligent applications, AI agents, machine learning systems and automation solutions.
+
+B. Software Engineering
+
+Building modern websites, applications and customized software platforms.
+
+C. Digital Innovation
+
+Combining emerging technologies, data and automation to create practical digital experiences.
+
+SECTION 4: AI SOLUTIONS PREVIEW
+
+Heading:
+
+Intelligence That Creates Possibilities.
+
+Description:
+
+We explore and implement artificial intelligence technologies to develop intelligent applications, automate workflows and enable smarter decision-making.
+
+Show these eight capabilities:
+
+* Generative AI.
+* AI Agents.
+* Machine Learning.
+* RAG & Knowledge AI.
+* Computer Vision.
+* Voice AI.
+* Intelligent Automation.
+* Predictive Analytics.
+
+CTA:
+
+Explore AI Solutions →
+
+SECTION 5: SERVICES PREVIEW
+
+Heading:
+
+Engineering Solutions for Real-World Needs.
+
+Description:
+
+We provide technology services that help businesses establish, improve and scale their digital presence.
+
+Show:
+
+* Website Development.
+* Application Development.
+* Custom Software Development.
+* Data Analytics & Business Intelligence.
+* API Development & Integration.
+* Business Automation.
+* IT Consulting.
+* Digital Marketing.
+
+CTA:
+
+Explore Our Services →
+
+SECTION 6: FUTURE AI VISION
+
+Heading:
+
+Beyond Applications. Towards Intelligence.
+
+Subheading:
+
+Our Vision for the Future of Artificial Intelligence.
+
+Content:
+
+At Alvantix, we believe the future of technology extends beyond integrating existing artificial intelligence models.
+
+Our long-term ambition is to research, engineer and develop proprietary AI technologies under the Alvantix ecosystem.
+
+We aim to explore advanced language models, reasoning capabilities, multimodal intelligence and intelligent infrastructure.
+
+Through continuous research, experimentation and engineering, we aspire to build our own AI models and contribute to the next generation of artificial intelligence.
+
+Research directions:
+
+1. Proprietary AI Models.
+2. Advanced Reasoning.
+3. Multimodal Intelligence.
+4. Intelligent AI Infrastructure.
+
+IMPORTANT:
+
+This is a future research ambition.
+
+Do not claim that Alvantix already has its own foundation model, proprietary LLM or advanced multimodal model.
+
+Do not invent model benchmarks, parameter counts, technical achievements or demonstrations.
+
+Present this section professionally and credibly.
+
+SECTION 7: WHY ALVANTIX?
+
+Heading:
+
+Why Choose Alvantix?
+
+Present five principles:
+
+1. AI-First Thinking.
+2. Innovation-Driven Approach.
+3. Practical Engineering.
+4. Scalable Architecture.
+5. Future-Oriented Vision.
+
+SECTION 8: FINAL CTA
+
+Heading:
+
+Have an Idea? Let's Build It.
+
+Description:
+
+Whether you are exploring AI solutions, developing software or looking to transform your business digitally, Alvantix is ready to discuss your next idea.
+
+CTA:
+
+Start a Conversation →
+
+==================================================
+5. PAGE TWO – ABOUT ALVANTIX
+============================
+
+Route: /about
+
+Page heading:
+
+About Alvantix.
+
+Subheading:
+
+Building Technology. Enabling Intelligence. Driving Innovation.
+
+WHO WE ARE:
+
+Alvantix is an AI-first technology and software innovation company focused on developing intelligent digital solutions and exploring emerging technologies.
+
+We bring together artificial intelligence, software engineering, automation and data intelligence to transform ideas into meaningful technology solutions.
+
+Our focus extends beyond delivering digital services. We aim to develop innovative platforms, solve real-world challenges and contribute to the future of intelligent technologies.
+
+OUR VISION:
+
+To contribute to a future where intelligent technologies make businesses, industries and everyday experiences more efficient, accessible and innovative.
+
+OUR MISSION:
+
+To develop meaningful digital solutions, create innovative technology and continuously explore advancements in artificial intelligence.
+
+OUR CORE VALUES:
+
+* Innovation.
+* Integrity.
+* Engineering Excellence.
+* Continuous Learning.
+* Responsible Technology.
+* Long-Term Thinking.
+
+OUR APPROACH:
+
+Understand → Innovate → Engineer → Deliver → Evolve.
+
+Include a founder introduction only if accurate information and approved assets are available in the existing repository.
+
+Do not invent employee numbers, office locations, awards, company milestones or achievements.
+
+==================================================
+6. PAGE THREE – AI SOLUTIONS
+============================
+
+Route: /ai-solutions
+
+Page title:
+
+AI Solutions – Artificial Intelligence by Alvantix.
+
+Hero heading:
+
+Turning Artificial Intelligence into Practical Innovation.
+
+Description:
+
+At Alvantix, we explore and implement artificial intelligence technologies to develop intelligent applications, automate processes and create smarter digital experiences.
+
+Create eight detailed capability sections.
+
+1. GENERATIVE AI
+
+Custom AI assistants, conversational systems and generative AI applications.
+
+2. AI AGENTS
+
+Intelligent agents designed to execute tasks, interact with systems and support automated workflows.
+
+3. MACHINE LEARNING
+
+Predictive modelling, classification, recommendation systems and data-driven intelligence.
+
+4. RAG & KNOWLEDGE AI
+
+AI systems that retrieve relevant information from documents, databases and organizational knowledge sources.
+
+5. COMPUTER VISION
+
+Image recognition, object detection, image processing and visual intelligence.
+
+6. VOICE AI
+
+Voice assistants, speech recognition and conversational voice interfaces.
+
+7. INTELLIGENT AUTOMATION
+
+AI-powered business workflows and intelligent process automation.
+
+8. PREDICTIVE ANALYTICS
+
+Data-driven forecasting, pattern recognition and decision-support systems.
+
+For every capability include:
+
+* Overview.
+* What it does.
+* Practical applications.
+* Potential business use cases.
+* Relevant enquiry CTA.
+
+SECTION: OUR FUTURE AI RESEARCH
+
+Heading:
+
+Developing Our Own Intelligence.
+
+Content:
+
+Our long-term ambition is to research and develop proprietary AI models and intelligent technologies under the Alvantix ecosystem.
+
+We aim to explore:
+
+* Proprietary AI models.
+* Advanced reasoning systems.
+* Multimodal intelligence.
+* AI infrastructure.
+* Domain-specific intelligence.
+
+Position this as a long-term research direction, not an existing commercial product or completed achievement.
+
+Closing CTA:
+
+Let's Explore the Possibilities of AI.
+
+==================================================
+7. PAGE FOUR – SERVICES
+=======================
+
+Route: /services
+
+Page heading:
+
+Technology Services That Move Businesses Forward.
+
+Description:
+
+From modern digital platforms to intelligent software systems, Alvantix delivers technology solutions designed around real business requirements.
+
+Create eight detailed service sections.
+
+1. WEBSITE DEVELOPMENT
+
+Professional, responsive and modern websites designed to establish and strengthen your digital presence.
+
+2. APPLICATION DEVELOPMENT
+
+Web and mobile applications designed to simplify operations and deliver better digital experiences.
+
+3. CUSTOM SOFTWARE DEVELOPMENT
+
+Tailored software solutions designed around specific business requirements and workflows.
+
+4. DATA ANALYTICS & BUSINESS INTELLIGENCE
+
+Transforming raw data into meaningful insights through analytics, visualization and reporting.
+
+5. API DEVELOPMENT & INTEGRATION
+
+Connecting applications, platforms and external services through reliable integrations.
+
+6. BUSINESS AUTOMATION
+
+Automating repetitive business processes to improve efficiency and productivity.
+
+7. IT CONSULTING
+
+Technology planning, architecture guidance and digital transformation consulting.
+
+8. DIGITAL MARKETING
+
+Helping businesses strengthen their digital presence and reach their target audiences.
+
+For each service include:
+
+* Service overview.
+* Problems addressed.
+* What Alvantix delivers.
+* Relevant applications.
+* Contact CTA.
+
+Closing section:
+
+Let's Build Your Next Digital Solution.
+
+==================================================
+8. PAGE FIVE – CONTACT
+======================
+
+Route: /contact
+
+Heading:
+
+Let's Build Something Intelligent.
+
+Description:
+
+Have a business requirement, technology challenge or innovative idea?
+
+Connect with Alvantix. Let's explore how artificial intelligence and software engineering can help turn your ideas into practical solutions.
+
+ENQUIRY CATEGORIES:
+
+* AI Solutions.
+* Website Development.
+* Application Development.
+* Custom Software.
+* Business Automation.
+* Data Analytics.
+* IT Consulting.
+* General Enquiry.
+
+CONTACT FORM:
+
+* Full Name.
+* Business Email.
+* Company Name (optional).
+* Service Required.
+* Project Description.
+* Submit Enquiry.
+
+Requirements:
+
+* Form validation.
+* Accessible input fields.
+* Proper error messages.
+* Loading and submission states.
+* Secure submission.
+* Preserve existing contact integrations.
+
+Do not expose API keys, database credentials or private configuration.
+
+Use only verified official contact details and social media accounts.
+
+==================================================
+9. FOOTER DESIGN
+================
+
+Use a consistent professional footer across all five pages.
+
+Brand:
+
+ALVANTIX
+
+AI-First Systems & Technologies.
+
+Building Intelligent Digital Solutions for the Future.
+
+Company:
+
+* Home.
+* About.
+
+Solutions:
+
+* AI Solutions.
+* Services.
+
+Connect:
+
+* Contact.
+* Official LinkedIn.
+* Official Instagram.
+* Official YouTube.
+
+Use only verified social media URLs.
+
+Copyright:
+
+© 2026 Alvantix. All rights reserved.
+
+==================================================
+10. BROWSER LOGO AND FAVICON OPTIMIZATION
+=========================================
+
+THIS IS A HIGH-PRIORITY REQUIREMENT.
+
+The current Alvantix favicon appears smaller and less recognizable than other website icons in the browser tab.
+
+Inspect the existing original Alvantix circular logo.
+
+Use the ACTUAL original circular logo from the repository.
+
+Do not generate a different logo.
+
+Do not replace the original brand identity.
+
+Prepare optimized favicon assets:
+
+* favicon.ico.
+* favicon.svg.
+* favicon-96x96.png.
+* apple-touch-icon.png.
+
+Recommended dimensions:
+
+* favicon.ico: include suitable 16px, 32px and 48px variants.
+* favicon-96x96.png: 96 × 96 pixels.
+* apple-touch-icon.png: 180 × 180 pixels.
+* favicon.svg: scalable vector version using the original logo artwork.
+
+Requirements:
+
+1. Preserve the original logo.
+2. Remove unnecessary transparent padding where appropriate.
+3. Center the logo artwork.
+4. Maintain its square aspect ratio.
+5. Preserve the original colours.
+6. Maintain strong contrast.
+7. Ensure clarity at small resolutions.
+8. Verify that every file exists.
+9. Use correct MIME types.
+10. Reference the assets correctly in index.html.
+
+Use stable paths inside the public directory.
+
+Example favicon configuration:
+
+<link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+IMPORTANT:
+
+The browser controls the final displayed favicon size.
+
+Do not use CSS to artificially enlarge a browser tab icon.
+
+The objective is to make the original Alvantix logo recognizable and visually clear at the same normal display size as other browser favicons.
+
+==================================================
+11. GOOGLE SEARCH FAVICON OPTIMIZATION
+======================================
+
+Optimize Alvantix's favicon for Google Search presentation.
+
+Requirements:
+
+* Use a square favicon.
+* Provide a version larger than 48 × 48 pixels.
+* Ensure Googlebot can access the favicon.
+* Do not block favicon files in robots.txt.
+* Use a stable favicon URL.
+* Reference the favicon from the homepage.
+* Avoid unnecessary favicon URL changes.
+* Ensure the favicon is publicly accessible over HTTPS.
+
+Do not claim Google will immediately update its search-result favicon.
+
+Google controls when the favicon is refreshed.
+
+==================================================
+12. GOOGLE SEARCH BRAND IDENTITY
+================================
+
+Target brand search:
+
+ALVANTIX
+
+Official website:
+
+https://www.alvantix.in/
+
+Preferred brand name:
+
+Alvantix
+
+Alternative name:
+
+Alvantix AI
+
+Ensure consistent brand information across:
+
+* Homepage title.
+* Website metadata.
+* Organization structured data.
+* Website structured data.
+* Visible branding.
+* Social media references.
+* Open Graph metadata.
+
+HOMEPAGE SEO TITLE:
+
+Alvantix | AI & Software Innovation Company
+
+HOMEPAGE META DESCRIPTION:
+
+Alvantix is an AI-first technology and software innovation company developing intelligent applications, AI solutions, automation systems and digital technologies for modern businesses.
+
+Avoid repetitive or duplicate descriptions.
+
+==================================================
+13. GOOGLE SITELINK OPTIMIZATION
+================================
+
+Optimize the website architecture to help Google understand Alvantix's important pages.
+
+The five canonical pages are:
+
+https://www.alvantix.in/
+https://www.alvantix.in/about
+https://www.alvantix.in/ai-solutions
+https://www.alvantix.in/services
+https://www.alvantix.in/contact
+
+Requirements:
+
+* Consistent navigation.
+* Descriptive internal links.
+* Unique page titles.
+* Unique meta descriptions.
+* Meaningful page content.
+* Clear heading hierarchy.
+* Crawlable HTML links.
+* Logical page relationships.
+* No orphan pages.
+* No duplicate canonical URLs.
+* Consistent footer links.
+* Appropriate breadcrumbs where useful.
+
+The homepage should clearly identify Alvantix as the official company website.
+
+Make About, AI Solutions, Services and Contact easy to discover.
+
+IMPORTANT:
+
+Google independently selects sitelinks.
+
+Do not create fake sitelinks or misleading navigation.
+
+Do not claim that adding these pages guarantees Google's sitelink display.
+
+==================================================
+14. WEBSITE NAME STRUCTURED DATA
+================================
+
+Implement appropriate WebSite JSON-LD.
+
+Website name:
+
+Alvantix
+
+Alternate name:
+
+Alvantix AI
+
+Website URL:
+
+https://www.alvantix.in/
+
+Ensure consistency with visible website branding and metadata.
+
+==================================================
+15. ORGANIZATION STRUCTURED DATA
+================================
+
+Implement valid Organization JSON-LD.
+
+Include verified details:
+
+* Organization name.
+* Official website.
+* Official logo URL.
+* Description.
+* Verified social media profiles.
+* Contact information, if available and verified.
+
+Do not invent:
+
+* Office addresses.
+* Telephone numbers.
+* Founding dates.
+* Legal company names.
+* Awards.
+* Ratings.
+* Customer reviews.
+* Employee numbers.
+
+Use the actual Alvantix circular logo asset.
+
+==================================================
+16. OTHER TECHNICAL SEO
+=======================
+
+Preferred canonical domain:
+
+https://www.alvantix.in/
+
+Inspect and implement:
+
+* Unique page titles.
+* Unique meta descriptions.
+* Canonical URLs.
+* Open Graph metadata.
+* Twitter Card metadata.
+* Proper H1 and H2 hierarchy.
+* Semantic HTML.
+* Descriptive image alt text.
+* Crawlable internal links.
+* Correct language declaration.
+* Appropriate robots directives.
+
+Ensure each of the five pages has unique metadata.
+
+==================================================
+17. DOMAIN CONSISTENCY
+======================
+
+Preferred canonical domain:
+
+https://www.alvantix.in/
+
+Inspect:
+
+* HTTP to HTTPS redirection.
+* Non-WWW to WWW redirection.
+* Canonical URLs.
+* Sitemap URLs.
+* Internal links.
+* Open Graph URLs.
+* Structured data URLs.
+
+Ensure all canonical references use the preferred domain.
+
+Do not introduce redirect loops.
+
+Preserve the existing Vercel deployment configuration.
+
+==================================================
+18. SITEMAP AND ROBOTS.TXT
+==========================
+
+Create or update:
+
+/sitemap.xml
+/robots.txt
+
+Sitemap must include these five public canonical pages:
+
+/
+/about
+/ai-solutions
+/services
+/contact
+
+Use:
+
+Sitemap: https://www.alvantix.in/sitemap.xml
+
+Requirements:
+
+* Correct XML structure.
+* Valid canonical URLs.
+* No duplicate URLs.
+* No development URLs.
+* No private routes.
+* No unnecessary query parameters.
+
+Do not block public favicon assets or important website resources.
+
+==================================================
+19. PERFORMANCE OPTIMIZATION
+============================
+
+Optimize:
+
+* Image file sizes.
+* WebP/AVIF where appropriate.
+* Lazy loading.
+* JavaScript bundles.
+* CSS.
+* Font loading.
+* Route loading.
+* Unnecessary dependencies.
+* Core Web Vitals.
+
+Do not remove important functionality for performance improvements.
+
+==================================================
+20. RESPONSIVE DESIGN
+=====================
+
+Test the website at:
+
+* 1920px desktop.
+* 1440px desktop.
+* 1280px laptop.
+* 1024px tablet.
+* 768px tablet.
+* 390px mobile.
+* 360px mobile.
+
+Requirements:
+
+* No horizontal overflow.
+* No clipped navigation.
+* No overlapping elements.
+* Properly aligned logo.
+* Visible CTA.
+* Responsive mobile menu.
+* Readable typography.
+* Consistent spacing.
+* Responsive images.
+
+The current header has previously shown a clipped right-side CTA.
+
+Specifically verify that this issue is resolved.
+
+==================================================
+21. ACCESSIBILITY AND QUALITY
+=============================
+
+Check:
+
+* Semantic HTML.
+* Keyboard navigation.
+* Visible focus states.
+* Accessible form labels.
+* Appropriate colour contrast.
+* Image alt text.
+* Reduced-motion support.
+* Correct button and link semantics.
+
+Do not sacrifice accessibility for visual design.
+
+==================================================
+22. GOOGLE SEARCH CONSOLE READINESS
+===================================
+
+Prepare the website for Google Search Console.
+
+Check:
+
+* Homepage indexability.
+* All five page URLs.
+* Sitemap accessibility.
+* Robots.txt accessibility.
+* No accidental noindex directives.
+* No accidental crawl restrictions.
+* Correct canonical references.
+* Broken internal links.
+* Duplicate titles.
+* Missing descriptions.
+* Structured data validity.
+
+Provide the manual actions required after deployment:
+
+1. Inspect the homepage.
+2. Inspect all four internal pages.
+3. Submit the sitemap.
+4. Request indexing where appropriate.
+5. Monitor indexing and enhancement reports.
+
+Do not invent verification codes.
+
+Do not claim Search Console verification has been completed unless actually verified.
+
+==================================================
+23. DEVELOPMENT RULES
+=====================
+
+Before implementation:
+
+1. Inspect the entire GitHub repository.
+2. Inspect package.json.
+3. Understand the current React architecture.
+4. Inspect routing.
+5. Inspect all components.
+6. Inspect existing logo assets.
+7. Inspect favicon assets.
+8. Inspect current SEO configuration.
+9. Identify existing API integrations.
+10. Identify backend connections.
+11. Inspect Vercel configuration.
+12. Identify potential breaking changes.
+
+During implementation:
+
+* Do not rebuild from scratch.
+* Do not delete working functionality.
+* Do not expose API keys.
+* Do not replace working APIs unnecessarily.
+* Do not invent company achievements.
+* Do not create fake testimonials.
+* Do not generate fake statistics.
+* Do not create fake AI demonstrations.
+* Do not introduce unnecessary dependencies.
+* Do not change unrelated functionality.
+
+If a required asset or company detail is missing, report it rather than inventing it.
+
+==================================================
+24. FINAL TESTING
+=================
+
+Before declaring the project complete:
+
+1. Run npm run build.
+2. Fix all build errors.
+3. Test all five routes.
+4. Test every navigation link.
+5. Test mobile navigation.
+6. Test CTA alignment.
+7. Test contact form validation.
+8. Test favicon files.
+9. Test favicon URLs.
+10. Test canonical URLs.
+11. Validate JSON-LD.
+12. Check sitemap.xml.
+13. Check robots.txt.
+14. Check broken images.
+15. Check broken links.
+16. Check browser console errors.
+17. Check responsive layouts.
+18. Check horizontal overflow.
+19. Check Vercel build compatibility.
+
+==================================================
+25. FINAL DELIVERABLE
+=====================
+
+Deliver a complete, professional, production-ready Alvantix website with exactly five main pages:
+
+1. Home.
+2. About.
+3. AI Solutions.
+4. Services.
+5. Contact.
+
+The finished website must communicate:
+
+* Alvantix's AI-first company identity.
+* Its software engineering capabilities.
+* Its artificial intelligence solutions.
+* Its technology services.
+* Its long-term proprietary AI research vision.
+
+It must also include:
+
+* Original Alvantix branding.
+* Optimized browser favicon.
+* Google Search favicon readiness.
+* Organization Schema.
+* Website Schema.
+* Google sitelink-friendly architecture.
+* Unique page SEO.
+* Canonical URL consistency.
+* Sitemap.
+* Robots.txt.
+* Responsive design.
+* Performance improvements.
+* Working existing functionality.
+
+FINAL IMPLEMENTATION REPORT:
+
+After completion, provide:
+
+1. Files modified.
+2. Pages implemented.
+3. Components modified.
+4. Logo and favicon changes.
+5. Google Search optimization changes.
+6. Structured data status.
+7. Sitemap status.
+8. Robots.txt status.
+9. Canonical URL status.
+10. Performance improvements.
+11. Responsive testing results.
+12. Build status.
+13. Remaining manual Google Search Console actions.
+
+Do not claim completion until all implemented features have been tested.
+
+Distinguish clearly between:
+
+* Technical work completed.
+* Google Search actions pending.
+* Google-controlled outcomes that cannot be guaranteed.

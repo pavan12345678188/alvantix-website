@@ -1,84 +1,163 @@
-import { motion } from 'motion/react';
-import { ArrowRight } from 'lucide-react';
+import { motion } from "motion/react";
+import { 
+  ArrowRight, 
+  Sparkles, 
+  Target, 
+  TrendingUp, 
+  CheckCircle2, 
+  ShieldCheck 
+} from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import SEO from "./SEO";
 import { servicesData, iconMap } from "../data/servicesData";
-import { Sparkles } from 'lucide-react';
-
-type ServicesViewProps = {
-  standalone?: boolean;
-};
 
 export default function ServicesView({
   standalone = false,
-}: ServicesViewProps) {
+}: {
+  standalone?: boolean;
+}) {
   const navigate = useNavigate();
 
+  const handleNavigate = (path: string) => {
+    navigate(path);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
-    <div className={`w-full bg-slate-50/40 relative ${standalone ? 'pt-40 md:pt-44' : ''}`}>
+    <div className={`w-full bg-white text-left ${standalone ? "pt-32 md:pt-36" : ""} pb-24`}>
+      <SEO
+        title="Services | Technology Services by Alvantix"
+        description="Explore Alvantix technology services: Website Development, Application Development, Custom Software, Data Analytics & BI, API Integration, Business Automation, IT Consulting, and Digital Marketing."
+        canonical="https://www.alvantix.in/services"
+      />
 
-    <SEO
-  title="Services | Alvantix"
-  description="Explore Alvantix services including AI solutions, software development, web development, digital marketing, automation, and business intelligence."
-/>
-
-      <section className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
         {/* HEADER SECTION */}
-        <div className="flex flex-col mb-16 text-left">
-          <div className="max-w-3xl">
-            <span className="text-lg md:text-xl lg:text-3xl font-mono tracking-widest uppercase text-blue-600 font-bold">
-              OUR EXPERTISE
-            </span>
-            <h2 className="font-display font-bold text-3xl sm:text-5xl text-slate-900 tracking-tight mt-2 mb-4">
-              AI-Powered Solutions for Modern Businesses
-            </h2>
-            <p className="text-slate-650 font-sans text-lg leading-relaxed">
-              We combine Artificial Intelligence, software engineering, and digital innovation to build scalable, secure, and future-ready solutions.
-            </p>
-          </div>
+        <div className="max-w-3xl mb-16 pt-6">
+          <span className="text-xs font-mono font-bold uppercase tracking-widest text-blue-600 block mb-2">
+            OUR SERVICES
+          </span>
+          <h1 className="font-display font-bold text-3xl sm:text-5xl text-slate-900 tracking-tight leading-tight mb-4">
+            Technology Services Engineered for Business Growth.
+          </h1>
+          <p className="text-slate-600 font-sans text-base sm:text-lg leading-relaxed">
+            From modern web platforms and custom software to business automation and data intelligence, Alvantix delivers reliable technology solutions designed to solve real operational problems and drive measurable commercial outcomes.
+          </p>
         </div>
 
-        {/* SERVICE GRID */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          {servicesData.map((service, idx) => {
-            const IconComp = iconMap[service.iconName] || Sparkles;
+        {/* EIGHT CLIENT-FOCUSED SERVICE CARDS */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-24">
+          {servicesData.map((svc) => {
+            const Icon = iconMap[svc.iconName] || Sparkles;
             return (
-              <motion.div
-                key={service.id}
+              <motion.article
+                key={svc.id}
                 initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: idx * 0.04 }}
-                onClick={() => navigate(`/services/${service.id}`)}
-                className="group relative bg-white border border-slate-150 rounded-[20px] p-8 shadow-sm hover:shadow-md hover:border-blue-400 transition-all duration-300 transform hover:-translate-y-1.5 cursor-pointer flex flex-col justify-between h-80"
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.4 }}
+                className="bg-white border border-slate-200/90 rounded-[24px] p-7 sm:p-9 shadow-2xs hover:border-blue-400 hover:shadow-md transition-all flex flex-col justify-between group"
               >
-                <div>
-                  {/* Icon with glowing badge effect */}
-                  <div className="w-12 h-12 rounded-xl flex items-center justify-center bg-blue-50 text-blue-600 transition-colors duration-300 group-hover:bg-blue-600 group-hover:text-white mb-6">
-                    <IconComp className="w-6 h-6" />
+                <div className="space-y-5">
+                  {/* Service Header: Icon & Name */}
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center border border-blue-100 group-hover:bg-blue-600 group-hover:text-white transition-colors shrink-0">
+                      <Icon className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <span className="text-xs font-mono font-bold text-blue-600 uppercase tracking-wider block">
+                        {svc.category}
+                      </span>
+                      <h2 className="font-display font-bold text-2xl text-slate-900 group-hover:text-blue-600 transition-colors">
+                        {svc.name}
+                      </h2>
+                    </div>
                   </div>
 
-                  <h3 className="font-display font-bold text-xl text-slate-900 group-hover:text-blue-600 transition-colors duration-200 mb-2">
-                    {service.name}
+                  {/* Customer-Friendly Headline */}
+                  <h3 className="font-display font-semibold text-lg text-slate-800 leading-snug">
+                    {svc.headline}
                   </h3>
 
-                  <p className="text-slate-500 font-sans text-sm leading-relaxed line-clamp-3">
-                    {service.description}
-                  </p>
+                  {/* Short Description: What Alvantix Provides */}
+                  <div className="space-y-1.5">
+                    <span className="text-xs font-mono font-bold uppercase tracking-wider text-slate-400 block">
+                      What We Provide
+                    </span>
+                    <p className="text-sm text-slate-600 leading-relaxed font-sans">
+                      {svc.description}
+                    </p>
+                  </div>
+
+                  {/* Business Value Explanation */}
+                  <div className="p-4 rounded-xl bg-blue-50/50 border border-blue-100/70 space-y-1">
+                    <span className="text-xs font-mono font-bold uppercase tracking-wider text-blue-700 flex items-center gap-1.5">
+                      <TrendingUp className="w-3.5 h-3.5" />
+                      Business Value & Impact
+                    </span>
+                    <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-sans">
+                      {svc.businessValue}
+                    </p>
+                  </div>
+
+                  {/* Deliverables / Key Offerings Preview */}
+                  <div>
+                    <span className="text-xs font-mono font-bold uppercase tracking-wider text-slate-400 block mb-2">
+                      Key Capabilities Included
+                    </span>
+                    <ul className="space-y-2">
+                      {svc.offerings.slice(0, 3).map((offering, oIdx) => (
+                        <li key={oIdx} className="flex items-start gap-2.5 text-xs text-slate-600">
+                          <CheckCircle2 className="w-3.5 h-3.5 text-blue-600 shrink-0 mt-0.5" />
+                          <span className="font-medium text-slate-700">
+                            <strong>{offering.title}:</strong> {offering.howItHelps}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
 
-                <div className="flex items-center space-x-1.5 text-xs font-semibold text-blue-600 pt-4 border-t border-slate-50">
-                  <span>Explore Solution </span>
-                  <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                {/* Primary Card Action: Explore Service (Navigates to detail page) */}
+                <div className="pt-6 mt-6 border-t border-slate-100">
+                  <button
+                    onClick={() => handleNavigate(`/services/${svc.id}`)}
+                    className="w-full py-3 px-5 rounded-xl bg-slate-900 hover:bg-blue-600 text-white font-semibold text-sm transition-all flex items-center justify-center gap-2 group-hover:bg-blue-600 cursor-pointer shadow-xs"
+                  >
+                    <span>Explore Service</span>
+                    <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                  </button>
                 </div>
-              </motion.div>
+              </motion.article>
             );
           })}
         </div>
 
-      </section>
+        {/* CLOSING SECTION: EDUCATE FIRST, THEN CONVERSE */}
+        <section className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-[28px] p-8 sm:p-14 text-center shadow-xl">
+          <div className="max-w-2xl mx-auto space-y-6">
+            <span className="text-xs font-mono font-bold uppercase tracking-widest text-blue-200 block">
+              PARTNER WITH ALVANTIX
+            </span>
+            <h2 className="font-display font-bold text-3xl sm:text-4xl text-white tracking-tight">
+              Ready to Discuss Your Technology Requirements?
+            </h2>
+            <p className="text-blue-100 text-sm sm:text-base leading-relaxed font-sans">
+              Whether you are upgrading an existing digital platform, building custom software from scratch, or automating complex operations, our senior engineers are here to help turn your goals into production-grade solutions.
+            </p>
+            <div className="pt-2">
+              <button
+                onClick={() => handleNavigate("/contact")}
+                className="px-8 py-3.5 rounded-xl bg-white text-blue-600 hover:bg-slate-50 font-bold text-sm shadow-md transition-all inline-flex items-center gap-2 cursor-pointer"
+              >
+                <span>Let's Talk About Your Project →</span>
+              </button>
+            </div>
+          </div>
+        </section>
 
+      </div>
     </div>
   );
 }

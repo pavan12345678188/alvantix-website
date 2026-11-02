@@ -12,21 +12,12 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      setIsScrolled(window.scrollY > 15);
     };
 
     window.addEventListener("scroll", handleScroll);
-
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  const menuItems = [
-    { label: "Home", path: "/" },
-    { label: "About", path: "/about" },
-    { label: "Services", path: "/services" },
-    { label: "Careers", path: "/careers" },
-    { label: "Contact", path: "/contact" },
-  ];
 
   const handleNavigate = (path: string) => {
     navigate(path);
@@ -34,136 +25,152 @@ export default function Navbar() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  // Exactly five main navigation pages (strict requirement)
+  const navLinks = [
+    { label: "Home", path: "/" },
+    { label: "About", path: "/about" },
+    { label: "AI Solutions", path: "/ai-solutions" },
+    { label: "Services", path: "/services" },
+    { label: "Contact", path: "/contact" },
+  ];
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-white/90 backdrop-blur-xl shadow-[0_8px_30px_rgba(15,23,42,0.08)] border-b border-slate-200 py-3'
-          : 'bg-transparent py-5'
+          ? "bg-white/95 backdrop-blur-md shadow-[0_4px_20px_rgba(15,23,42,0.06)] border-b border-slate-150 py-2.5"
+          : "bg-white/80 backdrop-blur-sm border-b border-slate-100/60 py-3.5"
       }`}
     >
-      <div className="px-6 lg:px-8">
-        <div className="flex items-center justify-between">
-          {/* Logo */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between gap-3 sm:gap-6">
+          
+          {/* LEFT: ORIGINAL CIRCULAR ALVANTIX LOGO + HORIZONTAL WORDMARK */}
           <div
-            onClick={() => navigate("/")}
-            className="cursor-pointer group -ml-3 lg:-ml-2"
+            onClick={() => handleNavigate("/")}
+            className="cursor-pointer group flex items-center gap-2.5 sm:gap-3 shrink-0"
+            title="Alvantix — AI & Software Innovation Company"
           >
-            <img
-              src="/logo/alvantix logo.png"
-              alt="Alvantix Logo"
-              className="h-20 md:h-20 lg:h-28 w-auto object-contain"
-            />
+            {/* Original Circular Logo: Desktop 48–54px, Mobile 42–46px */}
+            <div className="flex items-center justify-center transition-transform duration-200 group-hover:scale-102">
+              <img
+                src="/logo/alvantix logo.png"
+                alt="Alvantix Circular AI Logo"
+                className="h-[44px] sm:h-[48px] lg:h-[52px] w-auto object-contain"
+              />
+            </div>
+
+            {/* Original Horizontal ALVANTIX Wordmark */}
+            <div className="flex items-center">
+              <img
+                src="/logo/alvantix Name logo.png"
+                alt="Alvantix"
+                className="h-[22px] sm:h-[26px] lg:h-[28px] w-auto object-contain transition-opacity duration-200 group-hover:opacity-90"
+              />
+            </div>
           </div>
 
-          {/* Center Text Logo */}
-<div
-  className="absolute left-[46%] lg:left-[38%] -translate-x-1/2 ml-5 lg:ml-6"
-  onClick={() => handleNavigate("/")}
->
-            <img
-              src="/logo/alvantix Name logo.png"
-              alt="Alvantix"
-              className="h-16 md:h-14 lg:h-16 w-auto object-contain"
-            />
-          </div>
+          {/* RIGHT: EXACT FIVE NAVIGATION LINKS + LET'S TALK CTA */}
+          <div className="flex items-center gap-3 sm:gap-6">
+            
+            {/* DESKTOP NAVIGATION (Exactly 5 Links, No Dropdowns) */}
+            <nav className="hidden lg:flex items-center space-x-1 xl:space-x-2">
+              {navLinks.map((item) => {
+                const isActive =
+                  item.path === "/"
+                    ? location.pathname === "/"
+                    : location.pathname.startsWith(item.path);
 
-          {/* DESKTOP NAVIGATION & ACTION BUTTONS (RIGHT SIDE) */}
-          <div className="flex items-center justify-end space-x-3 z-10">
-            {/* DESKTOP NAVIGATION */}
-            <nav className="hidden md:flex items-center space-x-6">
-              {menuItems.map((item) => {
-                const isActive = location.pathname === item.path;
                 return (
                   <button
-                    key={item.path}
+                    key={item.label}
                     onClick={() => handleNavigate(item.path)}
-                    className={`relative px-3.5 py-1.5 rounded-full text-sm font-medium tracking-wide transition-colors duration-200 ${
-                      isActive ? 'text-blue-600' : 'text-slate-600 hover:text-slate-900'
+                    className={`relative px-3.5 py-2 rounded-full text-xs xl:text-sm font-semibold tracking-wide transition-all duration-200 cursor-pointer ${
+                      isActive
+                        ? "text-blue-600 bg-blue-50/70"
+                        : "text-slate-600 hover:text-slate-900 hover:bg-slate-50"
                     }`}
                   >
+                    <span>{item.label}</span>
                     {isActive && (
-                     <motion.div
-  layoutId="navbar-indicator"
-  className="absolute left-0 -bottom-1 h-[2px] w-full rounded-full bg-gradient-to-r from-blue-600 to-indigo-600"
-  transition={{
-    type: "spring",
-    stiffness: 400,
-    damping: 35,
-  }}
-/>
+                      <motion.div
+                        layoutId="activeNavIndicator"
+                        className="absolute inset-0 rounded-full border border-blue-200/80 -z-10"
+                        transition={{ type: "spring", stiffness: 450, damping: 35 }}
+                      />
                     )}
-                    {item.label}
                   </button>
                 );
               })}
             </nav>
 
-            
-          {/* Desktop CTA Only */}
-<button
-  onClick={() => handleNavigate("/contact")}
-  className="hidden lg:flex relative overflow-hidden px-5 py-2.5 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-medium text-sm shadow-md shadow-blue-600/10 hover:shadow-lg hover:shadow-blue-600/20 transition-all duration-300 hover:-translate-y-0.5 group items-center"
->
-  <span>Get Started</span>
-  <ArrowUpRight className="ml-2 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
-</button>
-
-            {/* MOBILE INTERACTIVE CONTROLS */}
-            <div className="md:hidden flex items-center space-x-1">
+            {/* RIGHT-SIDE CTA: LET'S TALK ↗ (Never clipped, protected by shrink-0) */}
+            <div className="flex items-center shrink-0">
               <button
-                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="p-1.5 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-colors"
-                aria-label="Toggle menu"
+                onClick={() => handleNavigate("/contact")}
+                className="relative overflow-hidden px-4 sm:px-5 py-2.5 rounded-full bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs sm:text-sm shadow-sm hover:shadow-md hover:shadow-blue-600/20 transition-all duration-200 flex items-center gap-1.5 cursor-pointer whitespace-nowrap"
               >
-                {mobileMenuOpen ? <X className="w-5.5 h-5.5" /> : <Menu className="w-5.5 h-5.5" />}
+                <span>Let's Talk</span>
+                <ArrowUpRight className="w-3.5 h-3.5" />
               </button>
             </div>
+
+            {/* MOBILE HAMBURGER BUTTON (<1024px) */}
+            <div className="lg:hidden flex items-center shrink-0">
+              <button
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className="p-2 rounded-xl text-slate-700 hover:text-slate-900 hover:bg-slate-100 transition-colors cursor-pointer"
+                aria-label="Toggle navigation menu"
+              >
+                {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              </button>
+            </div>
+
           </div>
+
         </div>
       </div>
 
-      {/* MOBILE NAV PANEL */}
+      {/* MOBILE DRAWER (Exact 5 items + CTA) */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
+            animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.25, ease: 'easeInOut' }}
-            className="md:hidden bg-white/95 backdrop-blur-lg border-b border-slate-100 overflow-hidden"
+            transition={{ duration: 0.2, ease: "easeInOut" }}
+            className="lg:hidden bg-white/98 backdrop-blur-xl border-b border-slate-200 overflow-hidden shadow-xl"
           >
-            <div className="px-4 pt-3 pb-6 space-y-2">
-              {menuItems.map((item) => {
-                const isActive = location.pathname === item.path;
+            <div className="max-w-7xl mx-auto px-4 py-4 space-y-1.5 text-left">
+              {navLinks.map((item) => {
+                const isActive =
+                  item.path === "/"
+                    ? location.pathname === "/"
+                    : location.pathname.startsWith(item.path);
+
                 return (
                   <button
-                    key={item.path}
+                    key={item.label}
                     onClick={() => handleNavigate(item.path)}
-                    className={`block w-full text-left px-4 py-3 rounded-xl text-base font-medium transition-colors ${
+                    className={`w-full flex items-center justify-between px-4 py-3 rounded-xl text-sm font-semibold transition-colors cursor-pointer ${
                       isActive
-                        ? 'bg-blue-50 text-blue-600'
-                        : 'text-slate-600 hover:bg-slate-50 hover:text-slate-950'
+                        ? "bg-blue-50 text-blue-600"
+                        : "text-slate-700 hover:bg-slate-50 hover:text-slate-900"
                     }`}
                   >
-                    <div className="flex items-center justify-between">
-                      <span>{item.label}</span>
-                      {isActive && <div className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600" />}
-                    </div>
+                    <span>{item.label}</span>
+                    {isActive && <div className="w-2 h-2 rounded-full bg-blue-600" />}
                   </button>
                 );
               })}
-              
-              <div className="pt-4 border-t border-slate-150 flex flex-col space-y-3 px-4">
-               
-                
+
+              <div className="pt-3 pb-1">
                 <button
-                  onClick={() => handleNavigate('/contact')}
-                  className="w-full py-3 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-medium text-center text-sm shadow-md flex items-center justify-center space-x-1"
+                  onClick={() => handleNavigate("/contact")}
+                  className="w-full py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm shadow-md flex items-center justify-center gap-2 cursor-pointer"
                 >
-                  <div className="flex items-center">
-                    <span>Get Started</span>
-                  </div>
+                  <span>Let's Talk</span>
+                  <ArrowUpRight className="w-4 h-4" />
                 </button>
               </div>
             </div>
