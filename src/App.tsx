@@ -11,6 +11,7 @@ import AISolutionDetailView from "./components/AISolutionDetailView";
 import ServicesView from "./components/ServicesView";
 import ServiceDetailView from "./components/ServiceDetailView";
 import ContactView from "./components/ContactView";
+import ProductDetailView from "./components/ProductDetailView";
 import PrivacyView from "./components/PrivacyView";
 import TermsView from "./components/TermsView";
 import NotFoundView from "./components/NotFoundView";
@@ -42,6 +43,7 @@ export default function App() {
               <Route path="/ai-solutions/:solutionId" element={<AISolutionDetailView />} />
               <Route path="/services" element={<ServicesView standalone />} />
               <Route path="/services/:serviceId" element={<ServiceDetailView />} />
+              <Route path="/products/:productId" element={<ProductDetailView />} />
               <Route path="/contact" element={<ContactView />} />
 
               {/* Compliance & Fallback */}

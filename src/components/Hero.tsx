@@ -65,13 +65,7 @@ export default function Hero() {
                 <ArrowRight className="w-4 h-4" />
               </button>
 
-              <button
-                onClick={() => handleNavigate("/contact")}
-                className="px-7 py-3.5 rounded-xl bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 hover:border-slate-300 font-semibold text-sm transition-all flex items-center justify-center gap-1.5 cursor-pointer"
-              >
-                <span>Let's Talk</span>
-                <ArrowUpRight className="w-4 h-4" />
-              </button>
+             
             </div>
 
           </div>

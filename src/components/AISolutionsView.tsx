@@ -93,7 +93,7 @@ export default function AISolutionsView() {
                     </div>
                     <div>
                       <span className="text-xs font-mono font-bold text-blue-600 uppercase tracking-wider block">
-                        AI CAPABILITY
+                        AI SOLUTION
                       </span>
                       <h2 className="font-display font-bold text-2xl text-slate-900 group-hover:text-blue-600 transition-colors">
                         {solution.name}
