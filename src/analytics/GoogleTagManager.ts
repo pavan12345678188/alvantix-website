@@ -4,7 +4,7 @@ import {
   type CookiePreferences,
 } from "./consent";
 
-const GTM_ID = import.meta.env.VITE_GTM_ID;
+const GTM_ID = import.meta.env.VITE_GTM_ID?.trim();
 
 const CONSENT_CHANGE_EVENT =
   "alvantix-cookie-consent-change";
