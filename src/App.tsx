@@ -1,5 +1,6 @@
 import { Routes, Route, useLocation, Navigate } from "react-router-dom";
 import { AnimatePresence, motion } from "motion/react";
+import { useEffect } from "react";
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -19,16 +20,13 @@ import CookieView from "./components/CookieView";
 import CookieConsent from "./components/CookieConsent";
 import NotFoundView from "./components/NotFoundView";
 
-import { useEffect } from "react";
-
 import useAnalytics from "./hooks/useAnalytics";
 import { initializeGoogleTagManager } from "./analytics/GoogleTagManager";
 
-
-
 export default function App() {
   const location = useLocation();
-   // Initialize Google Tag Manager consent management.
+
+  // Initialize Google Tag Manager consent management.
   useEffect(() => {
     return initializeGoogleTagManager();
   }, []);
@@ -36,16 +34,11 @@ export default function App() {
   // Automatically track page navigation.
   useAnalytics();
 
-  // Keep the rest of your existing code.
-
-  
   return (
     <div className="min-h-screen bg-white text-slate-600 font-sans flex flex-col justify-between selection:bg-blue-600/10 selection:text-blue-600">
-
       <Navbar />
 
       <main className="flex-1">
-
         <AnimatePresence mode="wait">
           <motion.div
             key={location.pathname}
@@ -58,7 +51,6 @@ export default function App() {
             }}
           >
             <Routes location={location}>
-
               {/* Main Website Pages */}
               <Route path="/" element={<HomeView />} />
               <Route path="/about" element={<AboutView standalone />} />
@@ -87,27 +79,15 @@ export default function App() {
               <Route path="/contact" element={<ContactView />} />
 
               {/* Legal & Compliance Pages */}
-              <Route
-                path="/privacy-policy"
-                element={<PrivacyView />}
-              />
-
-              <Route
-                path="/terms-and-conditions"
-                element={<TermsView />}
-              />
-
-              <Route
-                path="/cookie-policy"
-                element={<CookieView />}
-              />
+              <Route path="/privacy-policy" element={<PrivacyView />} />
+              <Route path="/terms-and-conditions" element={<TermsView />} />
+              <Route path="/cookie-policy" element={<CookieView />} />
 
               {/* Backward Compatibility */}
               <Route
                 path="/privacy"
                 element={<Navigate to="/privacy-policy" replace />}
               />
-
               <Route
                 path="/terms"
                 element={<Navigate to="/terms-and-conditions" replace />}
@@ -115,18 +95,15 @@ export default function App() {
 
               {/* 404 Fallback */}
               <Route path="*" element={<NotFoundView />} />
-
             </Routes>
           </motion.div>
         </AnimatePresence>
 
-        {/* Cookie Consent - Persistent Across Routes */}
+        {/* Cookie Consent */}
         <CookieConsent />
-
       </main>
 
       <Footer />
-
     </div>
   );
 }
