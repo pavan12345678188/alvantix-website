@@ -1,4 +1,4 @@
-export type PageType = 'home' | 'about' | 'services' | 'careers' | 'contact' | 'privacy' | 'terms';
+export type PageType = 'home' | 'about' | 'ai-solutions' | 'services' | 'contact' | 'products' | 'privacy' | 'terms';
 
 export interface Job {
   id: string;

@@ -26,15 +26,12 @@ import {
 import Hero from "./Hero";
 import { useNavigate } from "react-router-dom";
 import SEO from "./SEO";
-import ProductsShowcase from "./ProductsShowcase";
-import { trackCTA } from "../analytics/events";
-
+import { productsData, productIconMap } from "../data/productsData";
 
 export default function HomeView() {
   const navigate = useNavigate();
 
-  const handleNavigate = (path: string, label: string) => {
-    trackCTA(label, "Home");
+  const handleNavigate = (path: string) => {
     navigate(path);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -144,7 +141,7 @@ export default function HomeView() {
 
             <div className="lg:col-span-4 flex justify-start lg:justify-end">
               <button
-                onClick={() => handleNavigate("/about", "Discover Alvantix")}
+                onClick={() => handleNavigate("/about")}
                 className="px-6 py-3.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-semibold text-sm transition-all shadow-sm flex items-center gap-2 cursor-pointer group"
               >
                 <span>Discover Alvantix</span>
@@ -242,9 +239,7 @@ export default function HomeView() {
               </p>
             </div>
             <button
-              onClick={() =>
-                handleNavigate("/ai-solutions", "Explore All AI Solutions")
-              }
+              onClick={() => handleNavigate("/ai-solutions")}
               className="px-5 py-2.5 rounded-xl border border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white font-semibold text-xs transition-all flex items-center gap-1.5 self-start sm:self-end shrink-0 cursor-pointer"
             >
               <span>Explore All AI Solutions →</span>
@@ -257,12 +252,7 @@ export default function HomeView() {
               return (
                 <div
                   key={cap.id}
-                  onClick={() =>
-                    handleNavigate(
-                      `/ai-solutions/${cap.id}`,
-                      `Explore ${cap.title}`
-                    )
-                  }
+                  onClick={() => handleNavigate(`/ai-solutions/${cap.id}`)}
                   className="p-6 rounded-2xl bg-white border border-slate-200/90 hover:border-blue-400 hover:shadow-md transition-all flex flex-col justify-between cursor-pointer group"
                 >
                   <div>
@@ -307,9 +297,7 @@ export default function HomeView() {
               </p>
             </div>
             <button
-              onClick={() =>
-                handleNavigate("/services", "Explore All Services")
-              }
+              onClick={() => handleNavigate("/services")}
               className="px-5 py-2.5 rounded-xl border border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white font-semibold text-xs transition-all flex items-center gap-1.5 self-start sm:self-end shrink-0 cursor-pointer"
             >
               <span>Explore All Services →</span>
@@ -322,12 +310,7 @@ export default function HomeView() {
               return (
                 <div
                   key={svc.id}
-                  onClick={() =>
-                    handleNavigate(
-                      `/services/${svc.id}`,
-                      `Explore ${svc.title}`
-                    )
-                  }
+                  onClick={() => handleNavigate(`/services/${svc.id}`)}
                   className="p-6 rounded-2xl bg-slate-50/50 border border-slate-200/80 hover:border-blue-400 hover:bg-white hover:shadow-sm transition-all flex flex-col justify-between cursor-pointer group"
                 >
                   <div>
@@ -354,12 +337,63 @@ export default function HomeView() {
       </section>
 
       {/* ==================================================
-          OUR PRODUCTS: ALVANTIX PRODUCT ECOSYSTEM
+          SECTION 6: DIGITAL PRODUCTS IN DEVELOPMENT
       ================================================== */}
-      <ProductsShowcase />
+      <section className="py-20 sm:py-24 bg-slate-50/50 border-b border-slate-150">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div className="max-w-3xl mb-14 text-left">
+            <span className="text-xs font-mono font-bold uppercase tracking-widest text-blue-600 block mb-2">
+              PROPRIETARY INNOVATION
+            </span>
+            <h2 className="font-display font-bold text-3xl sm:text-4xl text-slate-900 tracking-tight">
+              Digital Products in Development.
+            </h2>
+            <p className="mt-3 text-slate-600 text-sm sm:text-base leading-relaxed font-sans">
+              Alongside our client engineering services, Alvantix develops proprietary digital platforms addressing high-impact opportunities in spiritual tourism, on-demand local services, career guidance, and healthcare administration.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {productsData.map((prod) => {
+              const Icon = productIconMap[prod.iconName] || Sparkles;
+              return (
+                <div
+                  key={prod.id}
+                  onClick={() => handleNavigate(`/products/${prod.id}`)}
+                  className="p-6 rounded-2xl bg-white border border-slate-200/90 hover:border-blue-400 hover:shadow-md transition-all flex flex-col justify-between cursor-pointer group text-left"
+                >
+                  <div className="space-y-3">
+                    <div className="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center border border-blue-100 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                      <Icon className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <span className="text-[10px] font-mono font-bold text-amber-600 uppercase tracking-wider block mb-1">
+                        {prod.statusBadge}
+                      </span>
+                      <h3 className="font-display font-bold text-lg text-slate-900 group-hover:text-blue-600 transition-colors">
+                        {prod.name}
+                      </h3>
+                    </div>
+                    <p className="text-xs text-slate-500 leading-relaxed font-sans line-clamp-3">
+                      {prod.overview}
+                    </p>
+                  </div>
+
+                  <div className="pt-4 mt-4 border-t border-slate-100 flex items-center gap-1.5 text-xs font-semibold text-blue-600">
+                    <span>View Product Details</span>
+                    <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+        </div>
+      </section>
 
       {/* ==================================================
-          SECTION 6: FUTURE AI VISION
+          SECTION 7: FUTURE AI VISION
       ================================================== */}
       <section className="py-20 sm:py-24 bg-slate-900 text-white relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-left relative z-10">
@@ -389,6 +423,9 @@ export default function HomeView() {
             {researchDirections.map((dir) => (
               <div key={dir.num} className="p-6 rounded-2xl bg-slate-800/80 border border-slate-700/80 flex flex-col justify-between">
                 <div>
+                  <span className="text-xs font-mono font-bold text-blue-400 block mb-3">
+                    Direction {dir.num}
+                  </span>
                   <h3 className="font-display font-bold text-lg text-white mb-2">
                     {dir.title}
                   </h3>
@@ -427,6 +464,9 @@ export default function HomeView() {
                   className="bg-white border border-slate-200/90 rounded-2xl p-6 shadow-2xs hover:shadow-md transition-all flex flex-col justify-between"
                 >
                   <div>
+                    <span className="text-xs font-mono font-bold text-blue-600 block mb-3">
+                      Principle 0{p.num}
+                    </span>
                     <h3 className="font-display font-bold text-base text-slate-900 mb-2">
                       {p.title}
                     </h3>
@@ -457,9 +497,7 @@ export default function HomeView() {
               </p>
               <div className="pt-2">
                 <button
-                  onClick={() =>
-                    handleNavigate("/contact", "Start a Conversation")
-                  }
+                  onClick={() => handleNavigate("/contact")}
                   className="px-8 py-3.5 rounded-xl bg-white text-blue-600 hover:bg-slate-50 font-bold text-sm shadow-md transition-all inline-flex items-center gap-2 cursor-pointer"
                 >
                   <span>Start a Conversation →</span>

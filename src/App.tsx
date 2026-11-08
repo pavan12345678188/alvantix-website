@@ -1,38 +1,40 @@
-import { Routes, Route, useLocation, Navigate } from "react-router-dom";
+import React, { lazy, Suspense } from "react";
+import { Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "motion/react";
-import { useEffect } from "react";
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import { usePageTracking } from "./utils/analytics";
 
-import HomeView from "./components/HomeView";
-import AboutView from "./components/AboutView";
-import AISolutionsView from "./components/AISolutionsView";
-import AISolutionDetailView from "./components/AISolutionDetailView";
-import ServicesView from "./components/ServicesView";
-import ServiceDetailView from "./components/ServiceDetailView";
-import ContactView from "./components/ContactView";
-import ProductDetailView from "./components/ProductDetailView";
+// Route-based code splitting for sub-500KB production chunks
+const HomeView = lazy(() => import("./components/HomeView"));
+const AboutView = lazy(() => import("./components/AboutView"));
+const AISolutionsView = lazy(() => import("./components/AISolutionsView"));
+const AISolutionDetailView = lazy(() => import("./components/AISolutionDetailView"));
+const ServicesView = lazy(() => import("./components/ServicesView"));
+const ServiceDetailView = lazy(() => import("./components/ServiceDetailView"));
+const ProductDetailView = lazy(() => import("./components/ProductDetailView"));
+const ContactView = lazy(() => import("./components/ContactView"));
+const PrivacyView = lazy(() => import("./components/PrivacyView"));
+const TermsView = lazy(() => import("./components/TermsView"));
+const NotFoundView = lazy(() => import("./components/NotFoundView"));
 
-import PrivacyView from "./components/PrivacyView";
-import TermsView from "./components/TermsView";
-import CookieView from "./components/CookieView";
-import CookieConsent from "./components/CookieConsent";
-import NotFoundView from "./components/NotFoundView";
-
-import useAnalytics from "./hooks/useAnalytics";
-import { initializeGoogleTagManager } from "./analytics/GoogleTagManager";
+function PageLoadingFallback() {
+  return (
+    <div className="w-full min-h-[60vh] flex items-center justify-center">
+      <div className="flex flex-col items-center gap-3">
+        <div className="w-8 h-8 border-2 border-blue-600 border-t-transparent rounded-full animate-spin" />
+        <span className="text-xs font-mono font-medium text-slate-400">Loading Alvantix...</span>
+      </div>
+    </div>
+  );
+}
 
 export default function App() {
   const location = useLocation();
 
-  // Initialize Google Tag Manager consent management.
-  useEffect(() => {
-    return initializeGoogleTagManager();
-  }, []);
-
-  // Automatically track page navigation.
-  useAnalytics();
+  // Track SPA pageviews on location changes (Google Analytics 4)
+  usePageTracking();
 
   return (
     <div className="min-h-screen bg-white text-slate-600 font-sans flex flex-col justify-between selection:bg-blue-600/10 selection:text-blue-600">
@@ -42,65 +44,36 @@ export default function App() {
         <AnimatePresence mode="wait">
           <motion.div
             key={location.pathname}
-            initial={{ opacity: 0, y: 8 }}
+            initial={{ opacity: 0, y: 6 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -8 }}
+            exit={{ opacity: 0, y: -6 }}
             transition={{
-              duration: 0.2,
+              duration: 0.18,
               ease: "easeInOut",
             }}
           >
-            <Routes location={location}>
-              {/* Main Website Pages */}
-              <Route path="/" element={<HomeView />} />
-              <Route path="/about" element={<AboutView standalone />} />
+            <Suspense fallback={<PageLoadingFallback />}>
+              <Routes location={location}>
+                {/* Five Main Canonical Pages */}
+                <Route path="/" element={<HomeView />} />
+                <Route path="/about" element={<AboutView standalone />} />
+                <Route path="/ai-solutions" element={<AISolutionsView />} />
+                <Route path="/ai-solutions/:solutionId" element={<AISolutionDetailView />} />
+                <Route path="/services" element={<ServicesView standalone />} />
+                <Route path="/services/:serviceId" element={<ServiceDetailView />} />
+                <Route path="/contact" element={<ContactView />} />
 
-              {/* AI Solutions */}
-              <Route path="/ai-solutions" element={<AISolutionsView />} />
-              <Route
-                path="/ai-solutions/:solutionId"
-                element={<AISolutionDetailView />}
-              />
+                {/* Genuine Product Detail Pages */}
+                <Route path="/products/:productId" element={<ProductDetailView />} />
 
-              {/* Services */}
-              <Route path="/services" element={<ServicesView standalone />} />
-              <Route
-                path="/services/:serviceId"
-                element={<ServiceDetailView />}
-              />
-
-              {/* Products */}
-              <Route
-                path="/products/:productId"
-                element={<ProductDetailView />}
-              />
-
-              {/* Contact */}
-              <Route path="/contact" element={<ContactView />} />
-
-              {/* Legal & Compliance Pages */}
-              <Route path="/privacy-policy" element={<PrivacyView />} />
-              <Route path="/terms-and-conditions" element={<TermsView />} />
-              <Route path="/cookie-policy" element={<CookieView />} />
-
-              {/* Backward Compatibility */}
-              <Route
-                path="/privacy"
-                element={<Navigate to="/privacy-policy" replace />}
-              />
-              <Route
-                path="/terms"
-                element={<Navigate to="/terms-and-conditions" replace />}
-              />
-
-              {/* 404 Fallback */}
-              <Route path="*" element={<NotFoundView />} />
-            </Routes>
+                {/* Compliance & Fallback */}
+                <Route path="/privacy" element={<PrivacyView />} />
+                <Route path="/terms" element={<TermsView />} />
+                <Route path="*" element={<NotFoundView />} />
+              </Routes>
+            </Suspense>
           </motion.div>
         </AnimatePresence>
-
-        {/* Cookie Consent */}
-        <CookieConsent />
       </main>
 
       <Footer />

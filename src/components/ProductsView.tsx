@@ -112,11 +112,11 @@ export default function ProductsView() {
       icon: Landmark
     },
     {
-      id: "nearclinic",
-      name: "NearClinic",
+      id: "qurixa",
+      name: "Qurixa Health Platform",
       tagline: "Connected Digital Healthcare & Clinic Management System",
       overview:
-        "NearClinic is an intelligent healthcare platform designed to bridge patients, neighborhood clinics, and medical practitioners. By streamlining appointment logistics, secure health record management, and clinical communication, NearClinic enhances patient access while optimizing outpatient operations.",
+        "Qurixa Health Platform is an intelligent healthcare platform designed to bridge patients, neighborhood clinics, and medical practitioners. By streamlining appointment logistics, secure health record management, and clinical communication, Qurixa enhances patient access while optimizing outpatient operations.",
       problemSolved:
         "Patients experience unpredictable wait times, lost physical prescription records, and disconnected communication with neighborhood doctors, while clinics face high administrative overhead.",
       targetAudience:
@@ -159,7 +159,7 @@ export default function ProductsView() {
     <div className="w-full bg-white pt-36 md:pt-40 pb-24 text-left">
       <SEO
         title="Products & Platforms | Intelligent Software Ecosystem | Alvantix"
-        description="Discover Alvantix products: PathLauncher (AI Career Guidance), Pramzo (Commerce Platform), Templeverse (Spiritual Tech), NearClinic (Healthcare Platform), and Alvantix Travel AI."
+        description="Discover Alvantix products: PathLauncher (AI Career Guidance), Pramzo (Commerce Platform), Templeverse (Spiritual Tech), and Qurixa Health Platform (Healthcare Platform)."
         canonical="https://www.alvantix.in/products"
         breadcrumbs={[
           { name: "Home", url: "/" },

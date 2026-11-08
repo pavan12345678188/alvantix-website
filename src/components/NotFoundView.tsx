@@ -8,7 +8,12 @@ export default function NotFoundView() {
   const navigate = useNavigate();
 
   return (
-    <section className="min-h-screen bg-white flex items-center justify-center px-6 py-32">
+    <section className="min-h-screen bg-white flex items-center justify-center px-6 py-32 text-left">
+      <SEO
+        title="404 - Page Not Found | Alvantix"
+        description="The page you are looking for doesn't exist or has been permanently discontinued."
+        noindex={true}
+      />
       <div className="max-w-3xl mx-auto text-center">
 
         {/* Animated 404 */}
@@ -68,13 +73,10 @@ export default function NotFoundView() {
             <Home className="w-5 h-5" />
             Back to Home
           </button>
-<SEO
-title="404 - Page Not Found | Alvantix"
-description="The page you are looking for could not be found."
-/>
+
           <button
             onClick={() => navigate("/services")}
-            className="px-8 py-4 rounded-xl border border-slate-200 text-slate-700 hover:bg-slate-50 transition-all flex items-center justify-center gap-2"
+            className="px-8 py-4 rounded-xl border border-slate-200 text-slate-700 hover:bg-slate-50 transition-all flex items-center justify-center gap-2 cursor-pointer"
           >
             Explore Services
             <ArrowRight className="w-5 h-5" />

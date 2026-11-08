@@ -12,6 +12,7 @@ interface SEOProps {
   image?: string;
   breadcrumbs?: BreadcrumbItem[];
   schema?: Record<string, any> | Record<string, any>[];
+  noindex?: boolean;
 }
 
 export default function SEO({
@@ -21,6 +22,7 @@ export default function SEO({
   image = "https://www.alvantix.in/og-image.png",
   breadcrumbs,
   schema,
+  noindex = false,
 }: SEOProps) {
   // Ensure strict canonical domain consistency with www
   const pathname = typeof window !== "undefined" ? window.location.pathname : "/";
@@ -50,10 +52,10 @@ export default function SEO({
         content="Alvantix, Alvantix AI, Artificial Intelligence, AI Solutions, Generative AI, AI Agents, Software Engineering, Web Development, Mobile Apps, Business Automation, Data Analytics, Technology Innovation"
       />
       <meta name="author" content="Alvantix" />
-      <meta name="robots" content="index, follow" />
+      <meta name="robots" content={noindex ? "noindex, nofollow" : "index, follow"} />
 
-      {/* Canonical URL */}
-      <link rel="canonical" href={canonicalUrl} />
+      {/* Canonical URL - only on indexable pages */}
+      {!noindex && <link rel="canonical" href={canonicalUrl} />}
 
       {/* Open Graph */}
       <meta property="og:type" content="website" />

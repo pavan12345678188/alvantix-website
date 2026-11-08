@@ -197,8 +197,22 @@ export default function Footer() {
 
         {/* BOTTOM COPYRIGHT ROW */}
         <div className="mt-12 pt-6 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
-          <div>
+          <div className="flex flex-wrap items-center gap-4">
             <span>© 2026 Alvantix. All rights reserved.</span>
+            <span className="hidden sm:inline text-slate-700">•</span>
+            <button
+              onClick={() => handleNavigate("/privacy")}
+              className="hover:text-slate-300 transition-colors cursor-pointer"
+            >
+              Privacy Policy
+            </button>
+            <span className="text-slate-700">•</span>
+            <button
+              onClick={() => handleNavigate("/terms")}
+              className="hover:text-slate-300 transition-colors cursor-pointer"
+            >
+              Terms of Service
+            </button>
           </div>
 
           <div className="flex items-center space-x-2 text-slate-400 font-mono">

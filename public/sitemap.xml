@@ -111,27 +111,26 @@
     <priority>0.85</priority>
   </url>
 
-
-  <!-- Alvantix product information pages -->
+  <!-- Genuine Product Pages in Development -->
   <url>
     <loc>https://www.alvantix.in/products/templeverse</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.alvantix.in/products/pramzo</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.alvantix.in/products/pathlauncher</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.alvantix.in/products/qurixa</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.65</priority>
+    <priority>0.8</priority>
   </url>
 
   <!-- Compliance Pages -->
